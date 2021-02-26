@@ -1,0 +1,31 @@
+<?php
+$CONFIG = [
+    "openid-connect" => [
+        "provider-url" => "CHANGEME",
+        "client-id" => "CHANGEME",
+        "client-secret" => "CHANGEME",
+        "loginButtonName" => "Azure AD",
+        "autoRedirectOnLoginPage" => false,
+        "scopes" => [
+            "openid",
+            "api://CHANGEME",
+            "profile", "email", "offline_access",
+        ],
+        "mode" => "email",
+        "search-attribute" => "email",
+        "use-access-token-payload-for-user-info" => true,
+        'auto-provision' => [
+            'enabled' => true,
+            'email-claim' => 'email',
+            'display-name-claim' => 'email',
+        ],
+        "ms-teams" => [
+            "loginButtonName" => "Login with Azure AD",
+        ]
+    ],
+    'memcache.local' => '\OC\Memcache\APCu',
+    'memcache.distributed' => '\OC\Memcache\APCu',
+    'debug' => true,
+    'loglevel' => 0,
+];
+

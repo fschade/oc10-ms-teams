@@ -1,0 +1,8 @@
+[submodule "apps/openidconnect"]
+	path = apps/openidconnect
+	url = https://github.com/fschade/openidconnect.git
+	branch = ms-teams
+[submodule "core"]
+	path = core
+	url = https://github.com/owncloud/core.git
+	branch = samesite-cookie

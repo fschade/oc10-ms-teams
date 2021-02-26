@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+composer --working-dir=/var/www/owncloud/apps/openidconnect install
+
+/usr/bin/owncloud server &
+
+until curl --output /dev/null --head --fail --silent --insecure "http://localhost:8080"; do
+  echo "waiting for 'ownCloud'"
+  sleep 1
+done
+
+occ app:enable openidconnect
+
+tail -f /dev/null

@@ -1,0 +1,20 @@
+version: "2.1"
+
+services:
+  owncloud:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      # openidconnect teams
+      - ./apps/openidconnect:/var/www/owncloud/apps/openidconnect
+      - ./config/openid.config.php:/mnt/data/config/openid.config.php
+      # samesite-cookie
+      - ./core/lib/private/AppFramework/Http/Request.php:/var/www/owncloud/core/lib/private/AppFramework/Http/Request.php
+      - ./core/lib/private/Http/CookieHelper.php:/var/www/owncloud/lib/private/Http/CookieHelper.php
+      - ./core/lib/private/Session/CryptoWrapper.php:/var/www/owncloud/lib/private/Session/CryptoWrapper.php
+      - ./core/lib/private/Session/Internal.php:/var/www/owncloud/lib/private/Session/Internal.php
+      # ,isc
+      - ./.htaccess:/var/www/owncloud/.htaccess
